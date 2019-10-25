@@ -1,0 +1,937 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled4.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Ujustwaite/ml1/blob/master/Lab_2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "iPZlmRP5VZki",
+        "colab_type": "text"
+      },
+      "source": [
+        "# **Lab 2: Classification Using New York City Fire Department Data:**\n",
+        "\n",
+        "\n",
+        "### Team: Aditya Garapati, Chase Henderson, Brian Waite, Carl Walenciak\n",
+        "\n",
+        "### Date: 10/24/2019\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "16IY9nCoaUJf",
+        "colab_type": "text"
+      },
+      "source": [
+        "# General Description:"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xy_8cmEpaOkc",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Business Understanding:"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GjRohg7pcVR5",
+        "colab_type": "text"
+      },
+      "source": [
+        "This is a continuation of the analysis of the Fire Department of New York City (FDNY) data describing fire incidents in support of the New York Fire Incident Reporting System (NYFIRS). Prior to and during our initial data preparation, we identified a number of analytic questions that could be of interest to fire resource planners. \n",
+        "\n",
+        "New York City uses a series of alarm codes to identify the severity of a fire and the associated response. These alarm codes are described at the following web locations: \n",
+        "\n",
+        "http://www.fdnewyork.com/aa.asp\n",
+        "\n",
+        "https://en.wikipedia.org/wiki/New_York_City_Fire_Department#Radio_and_bell_code_signals\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-6sIhPzygPUZ",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Problem Statement 1: Predicting High-Alarm vs. Low-Alarm Fires\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "eCyqGZ_4RYx6",
+        "colab_type": "text"
+      },
+      "source": [
+        "\n",
+        "Build a classification model that can **predict whether a fire constitutes a severe, high level incident, or a less-severe fire** based on parameters contained in the available data set. \n",
+        "\n",
+        "By building this classification model, we seek not only to identify the level of incidents based on parameters, but also to identify factors that contribute to an incident being classified as a high-level / low-level incident in order to aid planners in their future decision making process. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "p06ZlGOuRtL6",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Approach: "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kvEd5helRyIn",
+        "colab_type": "text"
+      },
+      "source": [
+        "This analysis builds upon the work previously submitted in the Mini-Lab assignment. In additon to using logistic regression and support vector machine models, we expand our analysis to include a Random Forest Classifier. With each we provide appropriate interpretation of the model parameters to understand the factors that contribute to the classification decision. \n",
+        "\n",
+        "For those models (Logistic Regression and SVM) that were used in the Mini-Lab, we will carry forward the optimization that we performed to gain best performance. This is typically the model with the best performance after performing a GridSearch on a variety of model parameters. Those \"best fit\" model parameters will be carried forward and run once here. \n",
+        "\n",
+        "For models not previously included in other assignments, the full GridSearch / optimization process is displayed and model performance evaluation according to selected criteria is described. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "15Hisur2TiLt"
+      },
+      "source": [
+        "## Problem Statement 2: To be determined"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "brR71aVyTiLv"
+      },
+      "source": [
+        "Insert Once Identified"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "oMYzxcz1TiLv"
+      },
+      "source": [
+        "### Approach: "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "jDQCWegMTiLw"
+      },
+      "source": [
+        "Insert Once Identified"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gDgSXtxrg6wb",
+        "colab_type": "text"
+      },
+      "source": [
+        "# Data Preparation: "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "w17d0yKDg-1n",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Data Description: \n",
+        "\n",
+        "A robust description of the data has been previously provided along with an associated Exploratory Data Analysis. That information is available here for reference: https://colab.research.google.com/github/Ujustwaite/ml1/blob/master/Playing_With_Fire.ipynb"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UiZS_U4chSlW",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Data Cleaning: \n",
+        "\n",
+        "To optimize this analysis, we need to do some additional transformation of the data and some leftover housekeeping from our EDA. This includes: \n",
+        "\n",
+        "* Conversion of the presence of the Automatic Extinguisher System to either \"not present = 0\" or \"present = 1\". \n",
+        "\n",
+        "* Conversion of the presence of a fire dector to either \"not present = 0\" or \"present = 1\". \n",
+        "\n",
+        "* Conversion of the presence of a standpipe system to \"not present = 0\" or \"present = 1\". \n",
+        "\n",
+        "* Filling of missing `total_incident_duration` values with the mean value. **Note that this process has been updated to take place after the separation of the Train / Test data in order to not pollute the model with advance knowledge of the Test data set.**\n",
+        "\n",
+        "* Correction of two incorrect zip code values. \n",
+        "\n",
+        "* Dropping of categorical fields that are freely input by the user and are unusable for analysis or are not consistently used in a meaningful sense for this problem. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "lP6BO9wPhUdU",
+        "colab_type": "code",
+        "outputId": "dd6d7395-ee4e-4893-99fc-4de25874fe6b",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 204
+        }
+      },
+      "source": [
+        "!pip install category_encoders"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Requirement already satisfied: category_encoders in /usr/local/lib/python3.6/dist-packages (2.1.0)\n",
+            "Requirement already satisfied: scikit-learn>=0.20.0 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.21.3)\n",
+            "Requirement already satisfied: statsmodels>=0.6.1 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.10.1)\n",
+            "Requirement already satisfied: pandas>=0.21.1 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.25.2)\n",
+            "Requirement already satisfied: numpy>=1.11.3 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (1.17.3)\n",
+            "Requirement already satisfied: scipy>=0.19.0 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (1.3.1)\n",
+            "Requirement already satisfied: patsy>=0.4.1 in /usr/local/lib/python3.6/dist-packages (from category_encoders) (0.5.1)\n",
+            "Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.6/dist-packages (from scikit-learn>=0.20.0->category_encoders) (0.14.0)\n",
+            "Requirement already satisfied: python-dateutil>=2.6.1 in /usr/local/lib/python3.6/dist-packages (from pandas>=0.21.1->category_encoders) (2.6.1)\n",
+            "Requirement already satisfied: pytz>=2017.2 in /usr/local/lib/python3.6/dist-packages (from pandas>=0.21.1->category_encoders) (2018.9)\n",
+            "Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from patsy>=0.4.1->category_encoders) (1.12.0)\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "RRv0MoJIWben",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#Imports Section\n",
+        "import category_encoders as ce\n",
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import matplotlib\n",
+        "import seaborn as sns\n",
+        "import matplotlib.pyplot as plt\n",
+        "from scipy import stats\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from sklearn import metrics as mt\n",
+        "from sklearn.preprocessing import StandardScaler\n",
+        "from sklearn.model_selection import GridSearchCV\n",
+        "from sklearn.metrics import classification_report\n",
+        "from sklearn.svm import SVC\n",
+        "from sklearn.pipeline import Pipeline\n",
+        "\n",
+        "#Read in the data output from EDA step\n",
+        "final_df = pd.read_pickle('final_df.pkl')\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-IwkAKS8bdK6",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#DATA CLEANING BLOCK\n",
+        "\n",
+        "#AES presence update\n",
+        "final_df.loc[final_df['aes_presence_desc'] == '1 - Present', 'aes_presence_desc'] = 1\n",
+        "final_df.loc[final_df['aes_presence_desc'] != 1, 'aes_presence_desc'] = 0\n",
+        "\n",
+        "#Smoke Detector presence update\n",
+        "final_df.loc[final_df['detector_presence_desc'] == '1 - Present', 'detector_presence_desc'] = 1\n",
+        "final_df.loc[final_df['detector_presence_desc'] != 1, 'detector_presence_desc'] = 0\n",
+        "\n",
+        "#Standpipe presence update\n",
+        "final_df.loc[final_df['standpipe_sys_present_flag'] == '1', 'standpipe_sys_present_flag'] = 1\n",
+        "final_df.loc[final_df['standpipe_sys_present_flag'] != 1, 'standpipe_sys_present_flag'] = 0\n",
+        "\n",
+        "#Replacement of missing zip codes\n",
+        "#Identified values using google maps and intersection information\n",
+        "final_df.at[18695, 'zip_code'] = '11103'\n",
+        "final_df.at[18760, 'zip_code'] = '11357'\n",
+        "\n",
+        "#Drop the categorical columns determined to be unusable\n",
+        "final_df = final_df.drop(columns = ['fire_spread_desc','floor','story_fire_origin_count'])\n",
+        "\n",
+        "#Drop the remaining 19 values that are missing the highest level alarm description\n",
+        "final_df.dropna(inplace = True)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "BC28DgClafDW",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Problem 1 Data Preparation:  Define and prepare your class variables.\n",
+        "\n",
+        "Because the target variable is not currently in the data set, we must construct it with the existing available data set. \n",
+        "\n",
+        "Here we will take the existing feature, `highest_level_desc` that defines the level of alarm raised for each incident in the data set and convert it to a binary value. The values contained in the data set are: "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "RO2GU5Rfc_Hi",
+        "colab_type": "code",
+        "outputId": "63508925-a261-485f-df5c-6eac9d280a20",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 119
+        }
+      },
+      "source": [
+        "final_df.highest_level_desc.unique()"
+      ],
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array(['11 - First Alarm', '75 - All Hands Working',\n",
+              "       '1 - More than initial alarm, less than Signal 7-5',\n",
+              "       '7 - Signal 7-5', '2 - 2nd alarm', '0 - Initial alarm',\n",
+              "       '22 - Second Alarm', '5 - 5th alarm', '4 - 4th alarm',\n",
+              "       '3 - 3rd alarm', '55 - Fifth Alarm', '33 - Third Alarm',\n",
+              "       '44 - Fourth Alarm'], dtype=object)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "B_spD7j3YCbL",
+        "colab_type": "text"
+      },
+      "source": [
+        "As you might expect, the majority of the events occuring throughout the city are low-level fires."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JFVWmZO0X3zw",
+        "colab_type": "code",
+        "outputId": "4f827e37-3622-4627-edc5-bbcaa3b34fc2",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 272
+        }
+      },
+      "source": [
+        "grouped = final_df.groupby(['highest_level_desc'])\n",
+        "grouped.count().im_incident_key"
+      ],
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "highest_level_desc\n",
+              "0 - Initial alarm                                       19\n",
+              "1 - More than initial alarm, less than Signal 7-5    12963\n",
+              "11 - First Alarm                                     11873\n",
+              "2 - 2nd alarm                                           53\n",
+              "22 - Second Alarm                                       47\n",
+              "3 - 3rd alarm                                           13\n",
+              "33 - Third Alarm                                        11\n",
+              "4 - 4th alarm                                            4\n",
+              "44 - Fourth Alarm                                        5\n",
+              "5 - 5th alarm                                            5\n",
+              "55 - Fifth Alarm                                         5\n",
+              "7 - Signal 7-5                                         701\n",
+              "75 - All Hands Working                                 621\n",
+              "Name: im_incident_key, dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "tY3H6u4yYama",
+        "colab_type": "text"
+      },
+      "source": [
+        "This means we have the potential for the data of \"in class\" vs. \"out of class\" to be highly imbalanced. We'll address this later in our analysis. For our analysis, we determined based on the definitions of the alarms in the references provided and on our initial EDA, that a severe fire is level 2 including Signal 7 / Signal 75, which are not truly 2 alarm or higher, but help to balance the in class data set. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yzLukfKdYYMU",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#Split the alarm code off the front of the description\n",
+        "new = final_df[\"highest_level_desc\"].str.split(\" \", n = 1, expand = True) \n",
+        "#Convert to integer\n",
+        "new[0] = new[0].astype('int32')\n",
+        "#Map the classifications according to alarm code\n",
+        "desc = {2: 1,22: 1, 3:1,33:1,4:1,44:1,5:1,55:1,0:0,1:0,11:0,7:1,75:1,} \n",
+        "final_df['FireLevel'] = [desc[item] for item in new[0]] "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "tiOLhRhCYOAW",
+        "colab_type": "code",
+        "outputId": "6e2cb4bb-6d81-4f81-a023-85d06f9db82f",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "#Number of in class records\n",
+        "final_df.FireLevel.sum()"
+      ],
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1465"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "oY18hQGacdL9",
+        "colab_type": "code",
+        "outputId": "2eddf567-4a0e-4ab4-f8dc-259121e82079",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "#Total number of records\n",
+        "final_df.FireLevel.shape[0]"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "26320"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "21TeaRJccrUJ",
+        "colab_type": "text"
+      },
+      "source": [
+        "Our target variable is now contained in the data frame as `FireLevel`. As we can see, there are 1,467 in class values out of the total 26,322 records. Approximately 5.6 percent. We will monitor and adjust for this imbalance throughout our analysis. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oHTm_QQHgxfW",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Encoding of Categorical Predictors\n",
+        "\n",
+        "In order to ensure the categorical values are providing balanced contributions to the model, we leverage one-hot encoding. This significantly increases the number of features. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "xO3Jz6smhPzc",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#Encode borough description\n",
+        "label = ce.OneHotEncoder(use_cat_names=True)\n",
+        "borough_label = label.fit_transform(final_df[['borough_desc']])\n",
+        "\n",
+        "#Encode incident type\n",
+        "label = ce.OneHotEncoder(use_cat_names=True)\n",
+        "incident_type_label = label.fit_transform(final_df[['incident_type_desc']])\n",
+        "\n",
+        "#Encode actiontaken 1 label -- the primary action taken by units onscene\n",
+        "label = ce.OneHotEncoder(use_cat_names=True)\n",
+        "action_taken_1_label = label.fit_transform(final_df[['action_taken1_desc']])"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3RRTCySxjhaY",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Drop Columns Not to be Used in Analysis\n",
+        "\n",
+        "A number of the columns in the dataframe are now duplicative of the encoded columns or are redundant / not useful. Things like zip_code, street_highway, and nearest_intersection are already captured in lat/long that we'll retain. Some of the date time information is already captured in the total_incident_duration feature. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qk41IFIUi9jw",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#drop the unnecessary columns\n",
+        "model_df = final_df.drop(columns = ['action_taken1_desc', 'action_taken2_desc', 'action_taken3_desc', 'borough_desc','fire_box', 'highest_level_desc', 'im_incident_key', 'incident_date_time', 'incident_type_desc', 'last_unit_cleared_date_time', 'property_use_desc', 'street_highway', 'zip_code', 'nearest_intersection','incident_code', 'incident_desc', 'DATE'])"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "NP6PvGrHoszg",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#concatenate the encoded columns\n",
+        "model_df = pd.concat([model_df,incident_type_label, action_taken_1_label, borough_label], axis = 1)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "tiQ5enuIozT0",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#Move the target value to the end of the dataframe and rename as target\n",
+        "model_df['target'] = model_df['FireLevel']\n",
+        "model_df = model_df.drop(columns = 'FireLevel')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "olHUNY9EWsED",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Create Train / Test Split"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sRqjwyuUKdO6",
+        "colab_type": "text"
+      },
+      "source": [
+        "In order to prepare for the analysis, we will use a shuffled 80/20 Train-Test split with stratification due to the small number of representative samples of the \"in class\" variables described above. The data is randomly selected for inclusion in either split, with a set seed to enable replication of results, but is stratified to ensure representation in both the train and test sets of the in class records. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "etQ4TFDcrJAx",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "X_p1_train, X_p1_test, y_p1_train, y_p1_test = train_test_split(model_df.iloc[:,0:99], model_df.iloc[:,99], test_size=0.20, random_state=42, shuffle = True, stratify = model_df.iloc[:,99])"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RdjelTI1aUbY",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Imputation of the `total_incident_duration` feature: \n",
+        "\n",
+        "One error we made in the Mini-Lab was to pollute the training data by imputing on the entire data set prior to splitting into train and test. The below corrects this by imputing the 'total_incident_duration' on both the train and test sets separately using their respective mean values independently. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "_KpY4BdyavGP",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#Total Incident Duration imputation\n",
+        "X_p1_train['total_incident_duration'].fillna((X_p1_train['total_incident_duration'].mean()), inplace = True)\n",
+        "X_p1_test['total_incident_duration'].fillna((X_p1_test['total_incident_duration'].mean()), inplace = True)\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N9IerxL7OOAA",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Upsampling to obtain balanced records\n",
+        "\n",
+        "To address the large imbalance in the data set, we successfully implemented code to up-sample the \"in-class\" records in the data set to be equally present in the data set with \"out of class\" records. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "_WG6EEmiOnoN",
+        "colab_type": "code",
+        "outputId": "f7d151b3-3b26-43df-c5ec-efa8d54ba32d",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "from sklearn.utils import resample\n",
+        "\n",
+        "# concatenate our training data back together\n",
+        "X = pd.concat([X_p1_train, y_p1_train], axis=1)\n",
+        "\n",
+        "# separate minority and majority classes\n",
+        "not_severe = X[X.target==0]\n",
+        "severe = X[X.target==1]\n",
+        "\n",
+        "# upsample minority\n",
+        "severe_upsampled = resample(severe, replace=True, # sample with replacement\n",
+        "                          n_samples=len(not_severe), # match number in majority class\n",
+        "                          random_state=123) # reproducible results\n",
+        "\n",
+        "# combine majority and upsampled minority\n",
+        "upsampled = pd.concat([not_severe, severe_upsampled])\n",
+        "\n",
+        "# check new class counts\n",
+        "upsampled.target.value_counts()"
+      ],
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1    19884\n",
+              "0    19884\n",
+              "Name: target, dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Sb7G0wUJXH3L",
+        "colab_type": "text"
+      },
+      "source": [
+        "This same process can be used by using the class_weight = 'balanced' flag when creating the model objects, but we wanted to execute the up-sampling to understand the process for doing so. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IeC41qlIfTIh",
+        "colab_type": "text"
+      },
+      "source": [
+        "Reference: https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-YH6cOG4eum-",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Describe the final dataset that is used for classification/regression."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bm3RTxPHez29",
+        "colab_type": "text"
+      },
+      "source": [
+        "Recall that during the initial phases of our research, we identified the need for a number of engineered features. These remain included in the data set and are as follows: \n",
+        "\n",
+        "\n",
+        "\n",
+        "*   `Distance_To_Nearest_Station`: An engineered feature derived by measuring the distance between the nearest firehouse location and the firebox. Straight line distance using Mercator projection.\t\n",
+        "*   `response_time`:\tAn engineered feature derived from arrival time of first units on scene and the time the incident occured.\n",
+        "\n",
+        "Note also that we expanded the data set with location information about the fire boxes and weather related information for NYC on the date of the incident.\n",
+        "\n",
+        "*   `LONG`\tLongitude of the firebox location where the incident occured.\n",
+        "*   `LAT`  \tLatitude of the firebox location where the incident occured.\n",
+        "*   `PRCP`:\tPrecipitation amount as measured in Central Park on date of the incident.\n",
+        "*   `SNOW`\tAmount of precipitation that was recorded as snowfall.\n",
+        "*   `SNWD`\tAmount of snow accumulation reported on the day of the incident.\n",
+        "\n",
+        "The final data set has the following parameters: "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "rngIGNLngx_Z",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "245c5a87-4e9e-42b9-a8eb-c4168935c670"
+      },
+      "source": [
+        "#Number of features\n",
+        "X_p1_train.shape\n",
+        "\n",
+        "#(Number of Records, Number of Features w/One Hot Encoding)"
+      ],
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(21056, 99)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IV3DXP6qhKID",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "9a34a401-349a-4a49-ac7c-f949dded3f45"
+      },
+      "source": [
+        "#Number of in-class in train data\n",
+        "y_p1_train.sum()"
+      ],
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0.05566109422492401"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Eh1-ARSdhSUA",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "45d1d388-29a5-45a4-ceb3-396546d8671a"
+      },
+      "source": [
+        "#Number of records in test set\n",
+        "X_p1_test.shape"
+      ],
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(5264, 99)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "aGdzrv2jhkRd",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "cd135eb4-1418-4e93-bca8-53b46f500aeb"
+      },
+      "source": [
+        "#Number of in-class in test set\n",
+        "y_p1_test.sum()"
+      ],
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0.055650522317188984"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 35
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "f9NC3Vz3h4-C",
+        "colab_type": "text"
+      },
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nKGNvgxxh6_u",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
